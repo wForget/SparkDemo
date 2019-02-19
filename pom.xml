@@ -11,6 +11,8 @@
     <properties>
         <scala.version>2.11.8</scala.version>
         <spark.version>2.2.0</spark.version>
+        <hbase.version>1.2.0</hbase.version>
+        <cdh.version>5.13.1</cdh.version>
         <encoding>UTF-8</encoding>
     </properties>
 
@@ -63,6 +65,30 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
+        <!-- hbase spark -->
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-spark</artifactId>
+            <version>${hbase.version}-cdh${cdh.version}</version>
+        </dependency>
+        <!-- hbase -->
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-server</artifactId>
+            <version>${hbase.version}-cdh${cdh.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-common</artifactId>
+            <version>${hbase.version}-cdh${cdh.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-client</artifactId>
+            <version>${hbase.version}-cdh${cdh.version}</version>
+        </dependency>
+
 
         <dependency>
             <groupId>com.thoughtworks.paranamer</groupId>
