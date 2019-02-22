@@ -21,6 +21,8 @@ class ReadHbaseProcess (private var sparkContext: SparkContext) {
 
     val scan = new Scan()
     scan.setTimeRange(0L, 1550546631000L)
+    scan.setCacheBlocks(false)
+    scan.setCaching(50)
     val hBaseContext = new HBaseContext(sparkContext, hbaseConf)
     val matchRdd = hBaseContext.hbaseRDD(TableName.valueOf("match_detail"), scan).map(r => {
       val rowkey = Bytes.toString(r._1.copyBytes())
